@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { ShareNode } from './nodes/shareNode';
+import { RadioNode } from './nodes/radioNode';
+import { LogicGateNode } from './nodes/logicGate';
+import { PreviewNode } from './nodes/previewNode';
+import { MultiSelectNode } from './nodes/multiSelectNode';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  share: ShareNode,
+  radio: RadioNode,
+  logicGate: LogicGateNode,
+  multiSelect: MultiSelectNode,
+  preview: PreviewNode
 };
 
 const selector = (state) => ({
