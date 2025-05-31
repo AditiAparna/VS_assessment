@@ -1,35 +1,45 @@
 // textNode.js
 
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { useState } from "react";
+import { BaseNode } from "./baseNode";
 
 export const TextNode = ({ id, data }) => {
-  const [currText, setCurrText] = useState(data?.text || '{{input}}');
+  const [currText, setCurrText] = useState(data?.text || "Please Type...");
+  const [handleArray, setHandleArray] = useState([{ type: "source", position: "Right", id: "output" }])
 
   const handleTextChange = (e) => {
-    setCurrText(e.target.value);
-  };
+    const text = e.target.value;
+    setCurrText(text);
+
+    const matches = text.match(/\{\{.*?\}\}/g);
+    const count = matches ? matches.length : 0;
+
+    const newTargetHandles = Array.from({ length: count }, (_, i) => ({
+        type: "target",
+        position: "Left",
+        id: `input-${i}`,
+        style: { top: `${((i + 1) * 100) / (count + 1)}%` }
+    }));
+
+    setHandleArray([
+        { type: "source", position: "Right", id: "output" },
+        ...newTargetHandles
+    ]);
+};
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <div>
-        <span>Text</span>
-      </div>
-      <div>
-        <label>
-          Text:
-          <input 
-            type="text" 
-            value={currText} 
-            onChange={handleTextChange} 
-          />
-        </label>
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-output`}
-      />
-    </div>
+    <BaseNode
+      id={id}
+      title="Text"
+      handles={handleArray}
+      preDefinedChild={[
+        {
+          type: "resizableTextarea",
+          label: "Name:",
+          value: currText,
+          onChange: handleTextChange,
+        },
+      ]}
+    />
   );
-}
+};
