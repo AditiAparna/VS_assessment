@@ -21,19 +21,18 @@ export const ResizableTextarea = ({ label, value, onChange }) => {
   }, [value]);
 
   return (
-    <label style={{ display: "flex", gap: 4 }}>
-      {label}
+    <label className="d-flex">
+      <span className="fw-medium me-2" style={{ color: '#565c65' }}>{label}</span>
       <textarea
         ref={textareaRef}
         value={value}
         onChange={onChange}
+        className="border rounded p-2"
         style={{
           resize: "none",
           overflow: "hidden",
           fontSize: 14,
-          border: "1px solid #ccc",
-          borderRadius: 4,
-          padding: 6,
+          borderColor: "#d0d9fe !important",
           boxSizing: "border-box",
           minWidth: 150,
           maxWidth: 300,
@@ -41,14 +40,13 @@ export const ResizableTextarea = ({ label, value, onChange }) => {
       />
       <div
         ref={spanRef}
+        className="position-absolute p-2"
         style={{
-          position: "absolute",
           visibility: "hidden",
           whiteSpace: "pre-wrap",
           wordBreak: "break-word",
           fontSize: 14,
           fontFamily: "inherit",
-          padding: 6,
           maxWidth: 300,
         }}
       />

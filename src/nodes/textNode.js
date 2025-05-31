@@ -4,7 +4,7 @@ import { useState } from "react";
 import { BaseNode } from "./baseNode";
 
 export const TextNode = ({ id, data }) => {
-  const [currText, setCurrText] = useState(data?.text || "input");
+  const [currText, setCurrText] = useState(data?.text || "Please Type...");
   const [handleArray, setHandleArray] = useState([{ type: "source", position: "Right", id: "output" }])
 
   const handleTextChange = (e) => {

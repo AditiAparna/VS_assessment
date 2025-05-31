@@ -34,9 +34,9 @@ export const PreviewNode = ({ id }) => {
       customChild={
         <div
           style={{
-            background: "#f9f9f9",
-            border: "1px solid #ccc",
             borderRadius: 4,
+            background: "#eef2ff",
+            border: "1px solid #d0d9fe",
             padding: "6px 8px",
             marginTop: "4px",
           }}

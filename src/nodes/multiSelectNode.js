@@ -15,7 +15,7 @@ export const MultiSelectNode = ({ id }) => {
   return (
     <BaseNode
       id={id}
-      title="Filter Tags"
+      title="Multi Select"
       handles={[
         { id: "input", type: "target", position: "Left" },
         { id: "output", type: "source", position: "Right" },
@@ -23,7 +23,7 @@ export const MultiSelectNode = ({ id }) => {
       preDefinedChild={[
         {
           type: "multiselect",
-          label: "AI Agent",
+          label: "AI Agent:",
           value: selectedTags,
           options: ["Claude", "Chat GPT", "Gemini", "DeepSeek"],
           onChange: handleMultiSelect,

@@ -17,8 +17,8 @@ export const LogicGateNode = ({ id, data }) => {
 
   return (
     <BaseNode
-      id="id"
-      title="Choose One"
+      id={id}
+      title="Logic Gate"
       handles={[
         {
           type: "target",
@@ -37,7 +37,7 @@ export const LogicGateNode = ({ id, data }) => {
       preDefinedChild={[
         {
           type: "radio",
-          label: "Primary Value",
+          label: "Primary Value:",
           value: radioValue,
           onChange: handleRadioValueChange,
           options: ["Input 1", "Input 2"],

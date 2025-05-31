@@ -3,8 +3,14 @@
 export const SubmitButton = () => {
 
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <button type="submit">Submit</button>
+        <div className="d-flex align-items-center justify-content-center">
+            <button 
+                type="submit" 
+                className="text-white border border-white rounded-2"
+                style={{background: '#6466f1'}}
+            >
+                Submit
+            </button>
         </div>
     );
 }

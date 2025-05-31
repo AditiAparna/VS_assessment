@@ -12,8 +12,8 @@ export const RadioNode = ({ id, data }) => {
 
   return (
     <BaseNode
-      id="id"
-      title="Choose One"
+      id={id}
+      title="Radio"
       handles={[
         { type: "target", position: "Left", id: "in" },
         { type: "source", position: "Right", id: "out" },
@@ -21,7 +21,7 @@ export const RadioNode = ({ id, data }) => {
       preDefinedChild={[
         {
           type: "radio",
-          label: "Options",
+          label: "Options:",
           value: selectedValue,
           onChange: handleSelectedValue,
           options: ["Option A", "Option B", "Option C"],
