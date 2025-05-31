@@ -1,4 +1,5 @@
 import { Handle, Position } from "reactflow";
+import { ResizableTextarea } from "../components/resizableTextArea";
 
 export const BaseNode = ({
   id,
@@ -11,8 +12,8 @@ export const BaseNode = ({
   return (
     <div
       style={{
-        width: 'auto',
-        height: 'auto',
+        width: "auto",
+        height: "auto",
         minHeight: 80,
         minWidth: 100,
         border: "1px solid black",
@@ -99,6 +100,15 @@ const renderPredefinedChild = (child, index, id) => {
             </label>
           ))}
         </fieldset>
+      );
+    case "resizableTextarea":
+      return (
+        <ResizableTextarea
+          key={key}
+          label={child.label}
+          value={child.value}
+          onChange={child.onChange}
+        />
       );
     case "text":
     default:
